@@ -13,10 +13,14 @@ The Weather App is a sleek and intuitive application built with HTML, CSS, and J
 
 # Installation
 1. Clone the repository:
-```git clone https://github.com/yourusername/weather-app.git```
-2. Navigate to the project directory:
-```cd weather-app```
-3. Open index.html in your browser to view the app.
+```
+git clone https://github.com/yourusername/weather-app.git
+```
+3. Navigate to the project directory:
+```
+cd weather-app
+```
+5. Open index.html in your browser to view the app.
 
 # Usage
 * Simply open the app and enter your location to get real-time weather updates.
