@@ -84,9 +84,12 @@ body{
   width: 40px;
   margin-right: 10px;
 }
-.humidity, .wind, .high, .low{
-  font-size: 24px;
+.humidity, .wind, .high-low, .feels-like{
+  font-size: 20px;
   margin-top: -6px;
+}
+.category{
+  font-size: 12px;
 }
 .weather{
   display: none;
