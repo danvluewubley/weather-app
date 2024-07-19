@@ -1,8 +1,8 @@
-const apiKey = "e22eb6317cbef951ad4d392d20fb6553";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=imperial&q=";
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const apiKey = "e22eb6317cbef951ad4d392d20fb6553"
 
 async function checkWeather(city){
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -18,6 +18,8 @@ async function checkWeather(city){
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + "°F";
     document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
     document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
+    document.querySelector('.high').innerHTML = Math.round(data.main.temp_max) + " °F";
+    document.querySelector('.low').innerHTML = Math.round(data.main.temp_min) + " °F";
 
     if(data.weather[0].main == "Clouds"){
       weatherIcon.src = 'images/clouds.png'
