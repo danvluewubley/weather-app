@@ -75,6 +75,14 @@ body{
   grid-gap: 50px;
   padding: 10px;
 }
+.time {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 50px;
+  padding: 20px;
+}
 .col{
   display: flex;
   align-items: center;
@@ -84,7 +92,7 @@ body{
   width: 40px;
   margin-right: 10px;
 }
-.humidity, .wind, .high-low, .feels-like{
+.humidity, .wind, .high-low, .feels-like, .time-now, .sunrise, .sunset{
   font-size: 20px;
   margin-top: -6px;
 }

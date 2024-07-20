@@ -13,6 +13,7 @@ async function checkWeather(city){
   }else{
 
     var data = await response.json();
+    console.log(data)
 
     document.querySelector('.city').innerHTML = data.name;
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + "°F";
@@ -20,6 +21,26 @@ async function checkWeather(city){
     document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
     document.querySelector('.high-low').innerHTML = Math.round(data.main.temp_max) + "°F/" + Math.round(data.main.temp_min) + "°F";
     document.querySelector('.feels-like').innerHTML = Math.round(data.main.feels_like) + "°F";
+    const sunrise = new Date((data.sys.sunrise+data.timezone) * 1000);
+    const sunset = new Date((data.sys.sunset+data.timezone) * 1000);
+
+    // Hours part from the timestamp
+    var sunriseHours = sunrise.getUTCHours();
+    const sunriseHoursIn12HrFormat = sunriseHours >= 13 ? sunriseHours %12: sunriseHours
+    const sunriseampm = sunriseHours >= 12 ? 'PM' : 'AM'
+    var sunsetHours = sunset.getUTCHours();
+    const sunsetHoursIn12HrFormat = sunsetHours >= 13 ? sunsetHours %12: sunsetHours
+    const sunsetampm = sunsetHours >= 12 ? 'PM' : 'AM'
+
+
+    // Minutes part from the timestamp
+    var sunriseMinutes = "0" + sunrise.getUTCMinutes();
+    var sunsetMinutes = "0" + sunset.getUTCMinutes();
+
+
+    document.querySelector('.sunrise').innerHTML = sunriseHoursIn12HrFormat + ':' + sunriseMinutes.substr(-2) + ' '+ sunriseampm;
+    document.querySelector('.sunset').innerHTML = sunsetHoursIn12HrFormat + ':' + sunsetMinutes.substr(-2) + ' ' + sunsetampm;
+    
 
     if(data.weather[0].main == "Clouds"){
       weatherIcon.src = 'images/clouds.png'
